@@ -8,7 +8,7 @@ function Navbar() {
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f5b33d] text-sm font-black text-[#2e1d16] shadow-sm">
             T
           </div>
-          <span className="text-lg font-black tracking-[0.18em] text-[#2d1d17]">TASTY BURGER</span>
+          <span className="text-lg font-black tracking-[0.18em] text-[#2d1d17]">HAROLD'S BURGER</span>
         </div>
 
         <div className="flex items-center gap-6 md:gap-8">
