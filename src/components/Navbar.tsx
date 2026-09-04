@@ -1,6 +1,10 @@
 import { ShoppingBag } from 'lucide-react';
 
-function Navbar() {
+interface NavbarProps {
+  cartItemCount: number;
+}
+
+function Navbar({ cartItemCount }: NavbarProps) {
   return (
     <header className="border-b border-gray-100 bg-[#f5ede9]">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
@@ -21,12 +25,12 @@ function Navbar() {
 
           <button
             type="button"
-            aria-label="Shopping bag with 2 items"
+            aria-label={`Shopping bag with ${cartItemCount} item${cartItemCount === 1 ? '' : 's'}`}
             className="relative inline-flex items-center justify-center rounded-full bg-[#fff9f5] p-3 shadow-sm ring-1 ring-[#e9d5c3]"
           >
             <ShoppingBag aria-hidden="true" className="h-5 w-5 text-[#2d1d17]" />
             <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white">
-              2
+              {cartItemCount}
             </span>
           </button>
         </div>

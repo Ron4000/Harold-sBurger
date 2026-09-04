@@ -1,11 +1,17 @@
 import { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import type { Swiper as SwiperInstance } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductCard from './ProductCard';
 import { menuData } from '../data/menuData';
 
-function MenuSection() {
-  const swiperRef = useRef(null);
+interface MenuSectionProps {
+  cartQuantities: Record<number, number>;
+  onQuantityChange: (burgerId: number, change: number) => void;
+}
+
+function MenuSection({ cartQuantities, onQuantityChange }: MenuSectionProps) {
+  const swiperRef = useRef<SwiperInstance | null>(null);
 
   return (
     <section id="menu" className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
@@ -41,7 +47,11 @@ function MenuSection() {
         >
           {menuData.map((burger) => (
             <SwiperSlide key={burger.id}>
-              <ProductCard burger={burger} />
+              <ProductCard
+                burger={burger}
+                quantity={cartQuantities[burger.id] ?? 0}
+                onQuantityChange={onQuantityChange}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

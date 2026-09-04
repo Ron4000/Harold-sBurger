@@ -1,4 +1,12 @@
-export const menuData = [
+export interface Burger {
+  id: number;
+  title: string;
+  description: string;
+  price: string;
+  image: string;
+}
+
+export const menuData: Burger[] = [
   {
     id: 1,
     title: 'Crispy Chicken',
